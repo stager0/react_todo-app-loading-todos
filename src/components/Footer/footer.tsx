@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { Todo } from '../types/Todo';
+import { Todo } from '../../types/Todo';
 
 export enum FilterEnum {
   all = 'all',

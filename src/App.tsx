@@ -4,10 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { UserWarning } from './UserWarning';
 import { getTodos, USER_ID } from './api/todos';
 import { Todo } from './types/Todo';
-import { FilterEnum, Footer } from './components/footer';
-import { Error } from './components/errorMessage';
-import { Header } from './components/header';
-import { TodoItem } from './components/todoItem';
+import { FilterEnum, Footer } from './components/Footer/footer';
+import { Error } from './components/Error/errorMessage';
+import { Header } from './components/Header/header';
+import { TodoItem } from './components/TodoItem/todoItem';
 
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[] | null>(null);
@@ -34,13 +34,13 @@ export const App: React.FC = () => {
   useEffect(() => {
     if (filter && todos) {
       switch (filter) {
-        case 'all':
+        case FilterEnum.all:
           setFilteredTodos(todos);
           break;
-        case 'active':
+        case FilterEnum.active:
           setFilteredTodos(todos.filter(todo => !todo.completed));
           break;
-        case 'completed':
+        case FilterEnum.completed:
           setFilteredTodos(todos.filter(todo => todo.completed));
           break;
         default:
